@@ -1,4 +1,4 @@
-# Wayne
+# XInfra-K8s
 
 [![Build Statue](https://travis-ci.org/Qihoo360/wayne.svg?branch=master)](https://travis-ci.org/Qihoo360/wayne)
 [![Build Tag](https://img.shields.io/github/tag/Qihoo360/wayne.svg)](https://github.com/Qihoo360/wayne/releases)
@@ -7,12 +7,12 @@
 
 [English](https://github.com/Qihoo360/wayne/blob/master/README.md) | [中文](https://github.com/Qihoo360/wayne/blob/master/README-CN.md)
 
-Wayne 是一个通用的、基于 Web 的 **[Kubernetes](https://kubernetes.io)  多集群管理平台**。通过可视化 Kubernetes 对象模板编辑的方式，降低业务接入成本，
+XInfra-K8s（前身 Wayne）是一个通用的、基于 Web 的 **[Kubernetes](https://kubernetes.io) 多集群管理平台**。通过可视化 Kubernetes 对象模板编辑的方式，降低业务接入成本，
 拥有完整的权限管理系统，适应多租户场景，是一款适合企业级集群使用的**发布平台**。
 
-Wayne已大规模服务于360搜索，承载了内部绝大部分业务，稳定管理了近千个业务，上万个容器，运行了两年多时间，经受住了生产的考验。
+XInfra-K8s 已大规模服务于360搜索，承载了内部绝大部分业务，稳定管理了近千个业务，上万个容器，运行了两年多时间，经受住了生产的考验。
 
-> 命名起源：360 搜索私有云团队多数项目命名都来源于 DC 漫画的角色，Wayne 也不例外，[Wayne](https://en.wikipedia.org/wiki/Batman#Bruce_Wayne) 是声名显赫的超级英雄蝙蝠侠 Bruce Wayne 的名字。
+> 命名起源：项目原名 Wayne，来源于 DC 漫画中超级英雄蝙蝠侠 Bruce Wayne。现更名为 **XInfra-K8s**，更准确地体现其作为企业级容器基础设施（Infra）管理平台的定位。
 
 ![控制面板](docs/images/dashboard-ui.png)
 
@@ -26,7 +26,7 @@ Wayne已大规模服务于360搜索，承载了内部绝大部分业务，稳定
 - 提供基于 APIKey 的开放接口调用：用户可自主申请相关 APIKey 并管理自己的部门和项目，运维人员也可以申请全局 APIKey 进行特定资源的全局管理。
 - 保留完整的发布历史：用户可以便捷的找到任何一次历史发布，并可轻松进行回滚，以及基于特定历史版本更新 Kubernetes 资源。
 - 具备完善的资源报表：用户可以轻松获取各项目的资源使用占比和历史上线频次（天级）以及其他基础数据的报表和图表。
-- 提供基于严密权限校验的 Web shell：用户可以通过 Web shell 的形式进入发布的 Pod 进行操作，自带完整的权限校验。 
+- 提供基于严密权限校验的 Web shell：用户可以通过 Web shell 的形式进入发布的 Pod 进行操作，自带完整的权限校验。
 - 提供站内通知系统：方便管理员推送集群、业务通知和故障处理报告等。
 
 ## 架构设计
@@ -42,11 +42,11 @@ Wayne已大规模服务于360搜索，承载了内部绝大部分业务，稳定
 
 ## 项目依赖
 
-- Golang 1.12+ ([installation manual](https://golang.org/dl/))
+- Golang 1.19+ ([installation manual](https://golang.org/dl/))
 - Docker 17.05+ ([installation manual](https://docs.docker.com/install))
 - Bee ([installation manual](https://github.com/beego/bee))
 - Node.js v11+ 和 npm 6.5+ ([installation with nvm](https://github.com/creationix/nvm#usage))
-- MySQL 5.6+ (Wayne 主要数据都存在 MySQL 中)
+- MySQL 5.6+ (XInfra-K8s 主要数据都存在 MySQL 中)
 
 ## 快速启动
 
@@ -58,13 +58,13 @@ $ git clone https://github.com/Qihoo360/wayne.git
 
 - 启动服务
 
-  在 Wayne 的根目录下，通过 docker-compose 创建服务
+  在 XInfra-K8s 的根目录下，通过 docker-compose 创建服务
 
 ```shell
 $ docker-compose -f ./hack/docker-compose/docker-compose.yaml up
 ```
 
-通过上述命令，您可以从通过 http://127.0.0.1:4200 访问本地 Wayne, 默认管理员账号 admin:admin。
+通过上述命令，您可以从通过 http://127.0.0.1:4200 访问本地 XInfra-K8s，默认管理员账号 admin:admin。
 
 > 注意：项目启动后还需要配置集群和 Namespace 等信息才可正常使用。详见 [集群配置](https://360yun.org/wayne/admin/cluster.html)
 

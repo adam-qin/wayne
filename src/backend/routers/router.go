@@ -1,5 +1,5 @@
 // @APIVersion 1.0.0
-// @Title Wayne API
+// @Title XInfra-K8s API
 // @Description List接口查询技巧：<br> 1.按照字段排序：增加sortby查询参数。例如：sortby=-id ，负号表示倒叙排序，不加负号表示默认排序 <br> 2.按照字段查询：增加filter查询参数。例如：filter=name__exact=test 表示name名称等于test， filter=name__contains=test表示名称包含test
 package routers
 

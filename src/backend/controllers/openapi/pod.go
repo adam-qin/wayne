@@ -51,7 +51,7 @@ type PodInfoFromIPParam struct {
 
 // swagger:parameters PodListParam
 type PodListParam struct {
-	// Wayne 的 namespace 名称，必须与 Name 同时存在或者不存在
+	// XInfra-K8s 的 namespace 名称，必须与 Name 同时存在或者不存在
 	// in: query
 	// Required: false
 	Namespace string `json:"namespace"`
@@ -79,7 +79,7 @@ type respPodInfoList struct {
 type respListInfo struct {
 	Cluster      string `json:"cluster,omitempty"`
 	ResourceName string `json:"resourceName,omitempty"`
-	// Wayne namespace 名称
+	// XInfra-K8s namespace 名称
 	Namespace string        `json:"namespace,omitempty"`
 	Pods      []respPodInfo `json:"pods"`
 }

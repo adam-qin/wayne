@@ -10,8 +10,8 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "wayne 开放 API （以下简称 openapi）是一组便于开发者调试、第三方工具开发和 CI/CD 的开放数据接口。\nopenapi 虽然格式上满足 Restful，但是并不是单一接口只针对特定资源的操作，在大部分时候单一接口会操作一组资源；\n同时，虽然 openapi 下只允许通过 GET 请求访问，但是并不意味着 GET 操作代表着 Restful 中对 GET 的用法定义；\nopenapi 的路径格式：/openapi/v1/gateway/action/:action，:action 代表特定操作，例如： get_vip_info、upgrade_deployment。\n\nopenapi 所操作的 action 必须搭配具有该 action 权限的 APIKey 使用（作为一个命名为 apikey 的 GET 请求参数），\n而对应的 apikey 需要具备 action 对应的权限（例如：action 对应 get_pod_info 的时候，apikey 需要具备 OPENAPI_GET_POD_INFO 权限），\n同时，受限于某些action的使用场景，可能强制要求附加的 APIKey 的使用范围，目前APIKey的适用范围包括三种，App 级别、Namespace 级别 以及 全局级别。",
-    "title": "Wayne OpenAPI Document",
+    "description": "XInfra-K8s 开放 API （以下简称 openapi）是一组便于开发者调试、第三方工具开发和 CI/CD 的开放数据接口。\nopenapi 虽然格式上满足 Restful，但是并不是单一接口只针对特定资源的操作，在大部分时候单一接口会操作一组资源；\n同时，虽然 openapi 下只允许通过 GET 请求访问，但是并不意味着 GET 操作代表着 Restful 中对 GET 的用法定义；\nopenapi 的路径格式：/openapi/v1/gateway/action/:action，:action 代表特定操作，例如： get_vip_info、upgrade_deployment。\n\nopenapi 所操作的 action 必须搭配具有该 action 权限的 APIKey 使用（作为一个命名为 apikey 的 GET 请求参数），\n而对应的 apikey 需要具备 action 对应的权限（例如：action 对应 get_pod_info 的时候，apikey 需要具备 OPENAPI_GET_POD_INFO 权限），\n同时，受限于某些action的使用场景，可能强制要求附加的 APIKey 的使用范围，目前APIKey的适用范围包括三种，App 级别、Namespace 级别 以及 全局级别。",
+    "title": "XInfra-K8s OpenAPI Document",
     "version": "1.5.0"
   },
   "host": "localhost",
@@ -151,7 +151,7 @@
           {
             "type": "string",
             "x-go-name": "Namespace",
-            "description": "Wayne 的 namespace 名称，必须与 Name 同时存在或者不存在",
+            "description": "XInfra-K8s 的 namespace 名称，必须与 Name 同时存在或者不存在",
             "name": "namespace",
             "in": "query"
           },
@@ -663,7 +663,7 @@
           "x-go-name": "Cluster"
         },
         "namespace": {
-          "description": "Wayne namespace 名称",
+          "description": "XInfra-K8s namespace 名称",
           "type": "string",
           "x-go-name": "Namespace"
         },

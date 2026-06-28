@@ -1,6 +1,6 @@
-// Package openapi Wayne OpenAPI Document
+// Package openapi XInfra-K8s OpenAPI Document
 //
-// wayne 开放 API （以下简称 openapi）是一组便于开发者调试、第三方工具开发和 CI/CD 的开放数据接口。
+// XInfra-K8s 开放 API （以下简称 openapi）是一组便于开发者调试、第三方工具开发和 CI/CD 的开放数据接口。
 // openapi 虽然格式上满足 Restful，但是并不是单一接口只针对特定资源的操作，在大部分时候单一接口会操作一组资源；
 // 同时，虽然 openapi 下只允许通过 GET 请求访问，但是并不意味着 GET 操作代表着 Restful 中对 GET 的用法定义；
 // openapi 的路径格式：/openapi/v1/gateway/action/:action，:action 代表特定操作，例如： get_vip_info、upgrade_deployment。
