@@ -3,7 +3,7 @@ package crd
 import (
 	"k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 
-	apiextensions "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1"
+	apiextensions "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/common"
@@ -11,7 +11,7 @@ import (
 )
 
 func GetCRDPage(cli *clientset.Clientset, q *common.QueryParam) (*common.Page, error) {
-	crdList, err := cli.ApiextensionsV1beta1().CustomResourceDefinitions().List(metaV1.ListOptions{})
+	crdList, err := cli.ApiextensionsV1().CustomResourceDefinitions().List(metaV1.ListOptions{})
 	if err != nil {
 		return nil, err
 	}

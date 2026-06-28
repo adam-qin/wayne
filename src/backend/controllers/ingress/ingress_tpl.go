@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	
-	kapiv1beta1 "k8s.io/api/extensions/v1beta1"
+	kapiv1 "k8s.io/api/networking/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -111,7 +111,7 @@ func (c *IngressTplController) Create() {
 }
 
 func validIngressTemplate(ingrTplStr string) error {
-	ingr := kapiv1beta1.Ingress{}
+	ingr := kapiv1.Ingress{}
 	err := json.Unmarshal(hack.Slice(ingrTplStr), &ingr)
 	if err != nil {
 		return fmt.Errorf("ingress template format error.%v", err.Error())

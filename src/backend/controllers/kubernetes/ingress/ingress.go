@@ -3,7 +3,7 @@ package ingress
 import (
 	"encoding/json"
 
-	kapiv1beta1 "k8s.io/api/extensions/v1beta1"
+	kapiv1 "k8s.io/api/networking/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/controllers/common"
@@ -40,7 +40,7 @@ func (c *KubeIngressController) Prepare() {
 func (c *KubeIngressController) Create() {
 	ingressId := c.GetIntParamFromURL(":ingressId")
 	tplId := c.GetIntParamFromURL(":tplId")
-	var kubeIngress kapiv1beta1.Ingress
+	var kubeIngress kapiv1.Ingress
 	err := json.Unmarshal(c.Ctx.Input.RequestBody, &kubeIngress)
 	if err != nil {
 		logs.Error("Invalid server tpl %s", string(c.Ctx.Input.RequestBody))

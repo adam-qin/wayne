@@ -2,12 +2,10 @@ package api
 
 import (
 	appsv1 "k8s.io/api/apps/v1"
-	appsv1beta1 "k8s.io/api/apps/v1beta1"
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	batchv1 "k8s.io/api/batch/v1"
-	batchv1beta1 "k8s.io/api/batch/v1beta1"
 	corev1 "k8s.io/api/core/v1"
-	extensionsv1beta1 "k8s.io/api/extensions/v1beta1"
+	networkingv1 "k8s.io/api/networking/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
 	storagev1 "k8s.io/api/storage/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
@@ -96,8 +94,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameDaemonSet: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    extensionsv1beta1.GroupName,
-				Version:  extensionsv1beta1.SchemeGroupVersion.Version,
+				Group:    appsv1.GroupName,
+				Version:  appsv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameDaemonSet,
 			},
 			Kind: KindNameDaemonSet,
@@ -107,8 +105,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameDeployment: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    appsv1beta1.GroupName,
-				Version:  appsv1beta1.SchemeGroupVersion.Version,
+				Group:    appsv1.GroupName,
+				Version:  appsv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameDeployment,
 			},
 			Kind: KindNameDeployment,
@@ -141,8 +139,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameIngress: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    extensionsv1beta1.GroupName,
-				Version:  extensionsv1beta1.SchemeGroupVersion.Version,
+				Group:    networkingv1.GroupName,
+				Version:  networkingv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameIngress,
 			},
 			Kind: KindNameIngress,
@@ -163,8 +161,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameCronJob: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    batchv1beta1.GroupName,
-				Version:  batchv1beta1.SchemeGroupVersion.Version,
+				Group:    batchv1.GroupName,
+				Version:  batchv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameCronJob,
 			},
 			Kind: KindNameCronJob,
@@ -229,8 +227,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameReplicaSet: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    extensionsv1beta1.GroupName,
-				Version:  extensionsv1beta1.SchemeGroupVersion.Version,
+				Group:    appsv1.GroupName,
+				Version:  appsv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameReplicaSet,
 			},
 			Kind: KindNameReplicaSet,
@@ -262,8 +260,8 @@ var KindToResourceMap = map[string]ResourceMap{
 	ResourceNameStatefulSet: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    appsv1beta1.GroupName,
-				Version:  appsv1beta1.SchemeGroupVersion.Version,
+				Group:    appsv1.GroupName,
+				Version:  appsv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameStatefulSet,
 			},
 			Kind: KindNameStatefulSet,
@@ -410,8 +408,8 @@ var KindToStableResourceMap = map[string]ResourceMap{
 	ResourceNameIngress: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    extensionsv1beta1.GroupName,
-				Version:  extensionsv1beta1.SchemeGroupVersion.Version,
+				Group:    networkingv1.GroupName,
+				Version:  networkingv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameIngress,
 			},
 			Kind: KindNameIngress,
@@ -432,8 +430,8 @@ var KindToStableResourceMap = map[string]ResourceMap{
 	ResourceNameCronJob: {
 		GroupVersionResourceKind: GroupVersionResourceKind{
 			GroupVersionResource: schema.GroupVersionResource{
-				Group:    batchv1beta1.GroupName,
-				Version:  batchv1beta1.SchemeGroupVersion.Version,
+				Group:    batchv1.GroupName,
+				Version:  batchv1.SchemeGroupVersion.Version,
 				Resource: ResourceNameCronJob,
 			},
 			Kind: KindNameCronJob,

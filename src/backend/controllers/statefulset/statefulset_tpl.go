@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"k8s.io/api/apps/v1beta1"
+	"k8s.io/api/apps/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -111,7 +111,7 @@ func (c *StatefulsetTplController) Create() {
 }
 
 func validStatefulsetTemplate(tpl string) error {
-	statefulset := v1beta1.StatefulSet{}
+	statefulset := v1.StatefulSet{}
 	err := json.Unmarshal(hack.Slice(tpl), &statefulset)
 	if err != nil {
 		return fmt.Errorf("statefulset template format error.%v", err.Error())

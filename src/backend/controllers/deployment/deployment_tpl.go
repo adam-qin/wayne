@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"k8s.io/api/apps/v1beta1"
+	"k8s.io/api/apps/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -112,7 +112,7 @@ func (c *DeploymentTplController) Create() {
 }
 
 func validDeploymentTemplate(deployStr string) error {
-	deployment := v1beta1.Deployment{}
+	deployment := v1.Deployment{}
 	err := json.Unmarshal(hack.Slice(deployStr), &deployment)
 	if err != nil {
 		return fmt.Errorf("deployment template format error.%v", err.Error())

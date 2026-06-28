@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"k8s.io/api/extensions/v1beta1"
+	"k8s.io/api/apps/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -111,7 +111,7 @@ func (c *DaemonSetTplController) Create() {
 }
 
 func validDaemonSetTemplate(tpl string) error {
-	daemonSet := v1beta1.DaemonSet{}
+	daemonSet := v1.DaemonSet{}
 	err := json.Unmarshal(hack.Slice(tpl), &daemonSet)
 	if err != nil {
 		return fmt.Errorf("daemonSet template format error.%v", err.Error())

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"k8s.io/api/batch/v2alpha1"
+	"k8s.io/api/batch/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -111,7 +111,7 @@ func (c *CronjobTplController) Create() {
 }
 
 func validCronjobTemplate(templateStr string) error {
-	cronjobTpl := v2alpha1.CronJob{}
+	cronjobTpl := v1.CronJob{}
 	err := json.Unmarshal(hack.Slice(templateStr), &cronjobTpl)
 	if err != nil {
 		return fmt.Errorf("cronjobTpl template format error.%v", err.Error())

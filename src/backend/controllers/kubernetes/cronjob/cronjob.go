@@ -3,7 +3,7 @@ package cronjob
 import (
 	"encoding/json"
 
-	"k8s.io/api/batch/v1beta1"
+	"k8s.io/api/batch/v1"
 
 	"github.com/Qihoo360/wayne/src/backend/controllers/base"
 	"github.com/Qihoo360/wayne/src/backend/models"
@@ -102,7 +102,7 @@ func (c *KubeCronjobController) Suspend() {
 func (c *KubeCronjobController) Create() {
 	cronjobId := c.GetIntParamFromURL(":cronjobId")
 	tplId := c.GetIntParamFromURL(":tplId")
-	var kubeCronJob v1beta1.CronJob
+	var kubeCronJob v1.CronJob
 	err := json.Unmarshal(c.Ctx.Input.RequestBody, &kubeCronJob)
 	if err != nil {
 		logs.Info("Invalid cronjob tpl %v", string(c.Ctx.Input.RequestBody))

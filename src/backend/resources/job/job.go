@@ -58,7 +58,7 @@ func pageResult(relateJob []*batchv1.Job, q *common.QueryParam) *common.Page {
 }
 
 func GetJobsByCronjobName(cli *kubernetes.Clientset, namespace, cronjobName string) ([]batchv1.Job, error) {
-	cronjob, err := cli.BatchV2alpha1().CronJobs(namespace).Get(cronjobName, metaV1.GetOptions{})
+	cronjob, err := cli.BatchV1().CronJobs(namespace).Get(cronjobName, metaV1.GetOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func GetJobsByCronjobName(cli *kubernetes.Clientset, namespace, cronjobName stri
 
 func GetPodsEvent(cli *kubernetes.Clientset, indexer *client.CacheFactory, namespace, jobName, cronjobName string) (resourcescommon.PodInfo, error) {
 	podInfo := resourcescommon.PodInfo{}
-	cronjob, err := cli.BatchV2alpha1().CronJobs(namespace).Get(cronjobName, metaV1.GetOptions{})
+	cronjob, err := cli.BatchV1().CronJobs(namespace).Get(cronjobName, metaV1.GetOptions{})
 	if err != nil {
 		return podInfo, err
 	}

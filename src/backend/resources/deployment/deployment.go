@@ -59,7 +59,7 @@ func GetDeploymentResource(cli client.ResourceHandler, deployment *appsv1.Deploy
 }
 
 func CreateOrUpdateDeployment(cli *kubernetes.Clientset, deployment *appsv1.Deployment) (*appsv1.Deployment, error) {
-	//old, err := cli.AppsV1beta1().Deployments(deployment.Namespace).Get(deployment.Name, metaV1.GetOptions{})
+	//old, err := cli.AppsV1().Deployments(deployment.Namespace).Get(deployment.Name, metaV1.GetOptions{})
 	old, err := cli.AppsV1().Deployments(deployment.Namespace).Get(deployment.Name, metaV1.GetOptions{})
 	if err != nil {
 		if errors.IsNotFound(err) {
@@ -166,7 +166,7 @@ func DeleteDeployment(cli *kubernetes.Clientset, name, namespace string) error {
 }
 
 func UpdateScale(cli *kubernetes.Clientset, deploymentname string, namespace string,newreplica int32) error {
-	deployments:=cli.AppsV1beta1().Deployments(namespace)
+	deployments:=cli.AppsV1().Deployments(namespace)
 	deployment,err:=deployments.Get(deploymentname,metaV1.GetOptions{})
 	if err != nil {
 		return  err
